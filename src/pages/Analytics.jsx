@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
 import data from '../Data.json'
+import { useOutletContext } from 'react-router-dom';
 
 const Analytics = () => {
+
+    const context = useOutletContext() || {};
+    const isCollapsed = context.isCollapsed || false;
+
+    const barChartRef = useRef(null);
+    const lineChartRef = useRef(null);
+
+    useEffect(() => {
+        if (barChartRef.current) barChartRef.current.getEchartsInstance().resize();
+        if (lineChartRef.current) lineChartRef.current.getEchartsInstance().resize();
+    }, [isCollapsed])
 
 
     const enrollmentChartData = useMemo(() => {
@@ -88,7 +100,7 @@ const Analytics = () => {
 
 
     return (
-        <div className="mx-auto max-w-5xl p-4 sm:p-6">
+        <div className="mx-auto max-w-5xl  sm:p-6">
 
             <div className="grid gap-8 md:grid-cols-2">
 
@@ -97,9 +109,12 @@ const Analytics = () => {
                         <h3 className="text-base font-semibold text-zinc-900 tracking-tight">Monthly Enrollment</h3>
                         <p className="text-xs text-zinc-500 mt-0.5">A simple count of students who joined each batch.</p>
                     </div>
-                    
+
                     <div className="h-72 w-full">
-                        <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
+                        <ReactECharts
+                            ref={barChartRef}
+                            option={option}
+                            style={{ height: '100%', width: '100%' }} />
                     </div>
                 </div>
 
@@ -111,7 +126,10 @@ const Analytics = () => {
                     </div>
                     {/* Height container with optimal aspect ratio */}
                     <div className="h-72 w-full">
-                        <ReactECharts option={lineChartOption} style={{ height: '100%', width: '100%' }} />
+                        <ReactECharts
+                            ref={lineChartRef}
+                            option={lineChartOption}
+                            style={{ height: '100%', width: '100%' }} />
                     </div>
                 </div>
 
