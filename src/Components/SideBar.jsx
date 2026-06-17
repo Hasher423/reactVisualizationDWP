@@ -58,7 +58,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
                         {/* Sub-Items Panel (Only shows if studentsOpen is true) */}
                         {studentsOpen && (
                             <div className="space-y-1 mt-1">
-                                <NavLink to="/students" className={subLinkStyle}>All Students</NavLink>
+                                <NavLink onClick={() => setIsCollapsed(true)} to="/students" className={subLinkStyle}>All Students</NavLink>
                                 {/* <NavLink to="/students/admission" className={subLinkStyle}>Admission</NavLink>
                                 <NavLink to="/students/attendance" className={subLinkStyle}>Attendance</NavLink> */}
                             </div>
@@ -82,7 +82,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
                         {/* Sub-Items Panel (Only shows if analyticsOpen is true) */}
                         {analyticsOpen && (
                             <div className="space-y-1 mt-1">
-                                <NavLink to="/analytics" className={subLinkStyle}>Overview</NavLink>
+                                <NavLink onClick={() => setIsCollapsed(true)} to="/analytics" className={subLinkStyle}>Overview</NavLink>
                             </div>
                         )}
                     </div>
