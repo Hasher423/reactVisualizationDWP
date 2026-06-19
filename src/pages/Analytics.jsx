@@ -82,8 +82,6 @@ const Analytics = () => {
 
         }
 
-        console.log(monthsArray)
-
 
         return {
             dynamicMonths: monthsArray,
