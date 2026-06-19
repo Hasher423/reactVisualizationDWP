@@ -18,19 +18,42 @@ const Analytics = () => {
         if (lineChartRef.current) lineChartRef.current.getEchartsInstance().resize();
     }, [isCollapsed]);
 
+
+
+    const dateToMonthMap = {
+        '01': 'january',
+        '02': 'february',
+        '03': 'march',
+        '04': 'april',
+        '05': 'may',
+        '06': 'june',
+        '07': 'july',
+        '08': 'august',
+        '09': 'september',
+        '10': 'october',
+        '11': 'november',
+        '12': 'december'
+    };
+
+
+
+
     const enrollmentChartData = useMemo(() => {
         const counter = {};
         const gpaSum = {};
 
         const filteredData = data.filter(student => {
             if (timeframe === 'full-year') return true;
-            
+
+            const monthNumericToken = student.month.split('-')[1];
+            const mappedMonthName = dateToMonthMap[monthNumericToken];
+
             if (timeframe === 'half-year') {
-                const firstHalfMonths = ['January', 'February', 'March', 'April', 'May', 'June'];
-                return firstHalfMonths.includes(student.month);
+                const firstHalfMonths = ['january', 'february', 'march', 'april', 'may', 'june'];
+                return firstHalfMonths.includes(mappedMonthName);
             }
-            
-            return student.month.toLowerCase() === timeframe.toLowerCase();
+
+            return mappedMonthName === timeframe.toLowerCase();
         });
 
         filteredData.forEach(student => {
@@ -62,6 +85,7 @@ const Analytics = () => {
 
     }, [timeframe]); // Recalculate values whenever timeframe updates
 
+    // BRUTALIST CHART CONFIGURATION (Aesthetic Overhaul)
     const option = {
         backgroundColor: '#ffffff',
         tooltip: {
@@ -123,7 +147,7 @@ const Analytics = () => {
                 name: 'Average GPA',
                 data: enrollmentChartData.avgGpa,
                 type: 'line',
-                smooth: false, 
+                smooth: false,
                 symbol: 'square',
                 symbolSize: 8,
                 lineStyle: { color: '#18181b', width: 3 },
@@ -134,7 +158,7 @@ const Analytics = () => {
 
     return (
         <div className="mx-auto max-w-5xl w-full p-4 md:p-6 lg:p-8 font-mono tracking-tight text-zinc-900">
-            
+
             {/* Styled Selector Component Frame */}
             <div className="max-w-xs flex items-center bg-white border-2 border-zinc-950 overflow-hidden transition-all focus-within:translate-x-[-2px] focus-within:translate-y-[-2px] focus-within:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] mb-8 relative">
                 <select
