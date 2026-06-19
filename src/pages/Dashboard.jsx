@@ -79,50 +79,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Main Content Area: Spreadsheet Section */}
-      <div className="space-y-4">
-        <div>
-          <h2 className="text-lg font-semibold text-zinc-900">Student Directory</h2>
-          <p className="text-sm text-zinc-500">A comprehensive master-list layout displaying current enrollment details.</p>
-        </div>
-
-        {/* Beautiful Spreadsheet Table */}
-        <div className="w-full overflow-x-auto rounded-xl border border-zinc-200 bg-white shadow-sm">
-          <table className="w-full border-collapse text-left text-sm text-zinc-600">
-            <thead>
-              {table.getHeaderGroups().map(headerGroup => (
-                <tr key={headerGroup.id} className="border-b border-zinc-200 bg-zinc-50/75 transition-colors">
-                  {headerGroup.headers.map(header => (
-                    <th 
-                      key={header.id} 
-                      className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-zinc-500"
-                    >
-                      {flexRender(header.column.columnDef.header, header.getContext())}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody className="divide-y divide-zinc-100">
-              {table.getRowModel().rows.map(row => (
-                <tr 
-                  key={row.id} 
-                  className="group border-b border-zinc-100 bg-white last:border-none hover:bg-zinc-50/60 transition-colors duration-150"
-                >
-                  {row.getVisibleCells().map(cell => (
-                    <td 
-                      key={cell.id} 
-                      className="px-6 py-4 text-zinc-700 whitespace-nowrap font-medium"
-                    >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      
     </div>
   );
 };
