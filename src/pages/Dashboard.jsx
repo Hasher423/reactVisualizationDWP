@@ -29,57 +29,51 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="space-y-8 p-1">
-      {/* Upper Section: Welcome Header */}
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight text-zinc-900">Overview Dashboard</h1>
-        <p className="text-sm text-zinc-500">Track student records, academic performance, and batch growth metrics.</p>
+    <div className="w-full h-screen bg-[#f2efe9] text-neutral-900 font-mono tracking-tight p-4 md:p-6 lg:p-8 space-y-8">
+      <div className="border-b-2 border-zinc-950 pb-4">
+        <h1 className="text-xl md:text-2xl font-black uppercase tracking-wider text-zinc-900">OVERVIEW_DASHBOARD</h1>
+        <p className="text-xs md:text-sm font-semibold text-zinc-500 mt-1">TRACK STUDENT RECORDS, ACADEMIC PERFORMANCE, AND BATCH GROWTH METRICS.</p>
       </div>
 
-      {/* Analytics Cards Grid */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {/* Card 1 */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between space-y-0 pb-2">
-            <span className="text-sm font-medium text-zinc-500">Total Enrolled</span>
-            <Users className="h-4 w-4 text-zinc-400" />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="bg-white border-2 border-zinc-950 p-6 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Total Enrolled</span>
+            <Users className="h-4 w-4 text-zinc-900" />
           </div>
-          <div className="text-2xl font-bold text-zinc-900">36</div>
-          <p className="text-xs text-zinc-400">+12% from last semester</p>
+          <div className="text-3xl font-black text-zinc-900 my-2">36</div>
+          <p className="text-[10px] font-bold uppercase text-zinc-400">+12% from last semester</p>
         </div>
 
-        {/* Card 2 */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between space-y-0 pb-2">
-            <span className="text-sm font-medium text-zinc-500">Average GPA</span>
-            <GraduationCap className="h-4 w-4 text-zinc-400" />
+        <div className="bg-white border-2 border-zinc-950 p-6 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Average GPA</span>
+            <GraduationCap className="h-4 w-4 text-zinc-900" />
           </div>
-          <div className="text-2xl font-bold text-zinc-900">3.51</div>
-          <p className="text-xs text-green-600 font-medium">↑ Exceptional standing</p>
+          <div className="text-3xl font-black text-zinc-900 my-2">3.51</div>
+          <p className="inline-block px-1.5 py-[1px] text-[10px] font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-300">
+            ↑ Exceptional standing
+          </p>
         </div>
 
-        {/* Card 3 */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between space-y-0 pb-2">
-            <span className="text-sm font-medium text-zinc-500">Active Batches</span>
-            <Calendar className="h-4 w-4 text-zinc-400" />
+        <div className="bg-white border-2 border-zinc-950 p-6 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Active Batches</span>
+            <Calendar className="h-4 w-4 text-zinc-900" />
           </div>
-          <div className="text-2xl font-bold text-zinc-900">12 Months</div>
-          <p className="text-xs text-zinc-400">Year-round intake active</p>
+          <div className="text-3xl font-black text-zinc-900 my-2">12 Months</div>
+          <p className="text-[10px] font-bold uppercase text-zinc-400">Year-round intake active</p>
         </div>
 
-        {/* Card 4 */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between space-y-0 pb-2">
-            <span className="text-sm font-medium text-zinc-500">Retention Rate</span>
-            <TrendingUp className="h-4 w-4 text-zinc-400" />
+        <div className="bg-white border-2 border-zinc-950 p-6 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Retention Rate</span>
+            <TrendingUp className="h-4 w-4 text-zinc-900" />
           </div>
-          <div className="text-2xl font-bold text-zinc-900">98.4%</div>
-          <p className="text-xs text-zinc-400">Institutional record high</p>
+          <div className="text-3xl font-black text-zinc-900 my-2">98.4%</div>
+          <p className="text-[10px] font-bold uppercase text-zinc-400">Institutional record high</p>
         </div>
       </div>
-
-      
     </div>
   );
 };
