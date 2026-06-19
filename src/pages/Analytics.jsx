@@ -100,36 +100,36 @@ const Analytics = () => {
 
 
     return (
-        <div className="mx-auto max-w-5xl  sm:p-6">
-
+        <div className="mx-auto max-w-5xl w-full p-4 md:p-6 lg:p-8 font-mono tracking-tight text-zinc-900">
             <div className="grid gap-8 md:grid-cols-2">
 
-                <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:shadow-md">
-                    <div className="mb-4">
-                        <h3 className="text-base font-semibold text-zinc-900 tracking-tight">Monthly Enrollment</h3>
-                        <p className="text-xs text-zinc-500 mt-0.5">A simple count of students who joined each batch.</p>
+                <div className="bg-white border-2 border-zinc-950 p-5 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+                    <div className="mb-6 border-b border-zinc-200 pb-2">
+                        <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900">Monthly Enrollment</h3>
+                        <p className="text-xs font-semibold text-zinc-500 mt-1">A simple count of students who joined each batch.</p>
                     </div>
 
-                    <div className="h-72 w-full">
+                    <div className="h-72 w-full border border-zinc-100 bg-zinc-50/50 p-2">
                         <ReactECharts
                             ref={barChartRef}
                             option={option}
-                            style={{ height: '100%', width: '100%' }} />
+                            style={{ height: '100%', width: '100%' }}
+                        />
                     </div>
                 </div>
 
-                {/* Chart Block 2: Performance */}
-                <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:shadow-md">
-                    <div className="mb-4">
-                        <h3 className="text-base font-semibold text-zinc-900 tracking-tight">Academic Standing Trends</h3>
-                        <p className="text-xs text-zinc-500 mt-0.5">The dynamic performance average of class GPAs grouped by intake cycle.</p>
+                <div className="bg-white border-2 border-zinc-950 p-5 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+                    <div className="mb-6 border-b border-zinc-200 pb-2">
+                        <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900">Academic Standing Trends</h3>
+                        <p className="text-xs font-semibold text-zinc-500 mt-1">The dynamic performance average of class GPAs grouped by intake cycle.</p>
                     </div>
-                    {/* Height container with optimal aspect ratio */}
-                    <div className="h-72 w-full">
+
+                    <div className="h-72 w-full border border-zinc-100 bg-zinc-50/50 p-2">
                         <ReactECharts
                             ref={lineChartRef}
                             option={lineChartOption}
-                            style={{ height: '100%', width: '100%' }} />
+                            style={{ height: '100%', width: '100%' }}
+                        />
                     </div>
                 </div>
 
