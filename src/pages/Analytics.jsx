@@ -73,12 +73,22 @@ const Analytics = () => {
             }
         });
 
-        const monthsArray = Object.keys(counter);
+        const dateArray = Object.keys(counter);
+        const monthsArray = [];
+
+        for (let i = 0; i < dateArray.length; i++) {
+            const mappedDate = dateArray[i].split('-')[1];
+            monthsArray.push(dateToMonthMap[mappedDate])
+
+        }
+
+        console.log(monthsArray)
+
 
         return {
             dynamicMonths: monthsArray,
             dynamicCounts: Object.values(counter),
-            avgGpa: monthsArray.map(month => (
+            avgGpa: dateArray.map(month => (
                 Number((gpaSum[month].total / gpaSum[month].count).toFixed(2))
             ))
         };
