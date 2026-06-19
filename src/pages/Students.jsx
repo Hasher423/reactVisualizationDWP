@@ -18,7 +18,7 @@ const columns = [
     },
     {
         accessorKey: "month",
-        header: "Admission Month",
+        header: "Date",
     },
 ];
 
@@ -40,7 +40,6 @@ const Students = () => {
                 console.log(searchQuery);
 
                 const targetValue = String(student[selectedHeader] || "").toLowerCase();
-                console.log(targetValue)
                 return targetValue.includes(searchQuery.toLowerCase());
             }
 
@@ -72,7 +71,7 @@ const Students = () => {
                         <option value="id" className="bg-white text-zinc-900 font-semibold">ID No.</option>
                         <option value="name" className="bg-white text-zinc-900 font-semibold">Student Name</option>
                         <option value="gpa" className="bg-white text-zinc-900 font-semibold">GPA Metric</option>
-                        <option value="month" className="bg-white text-zinc-900 font-semibold">Month</option>
+                        <option value="month" className="bg-white text-zinc-900 font-semibold">Date</option>
                     </select>
                     {/* Custom geometric arrow indicator */}
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-950 font-bold text-xs">
